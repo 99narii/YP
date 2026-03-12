@@ -117,14 +117,9 @@ const QRSection = styled.div`
 
 const QRImageWrapper = styled.div`
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   flex-shrink: 0;
-
-  ${({ theme }) => theme.media.tabletUp} {
-    width: 100px;
-    height: 100px;
-  }
 `;
 
 const QRImage = styled(Image)`
@@ -198,7 +193,6 @@ const MarqueeTrack = styled.div`
 const MarqueeTextContainer = styled.span`
   position: relative;
   display: inline-block;
-  padding-right: 100px;
 `;
 
 // 선명한 텍스트 (상단) - 하단으로 갈수록 서서히 페이드

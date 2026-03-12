@@ -9,18 +9,20 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://new-thinks.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "New Thinks | Influence That Converts",
-    template: "%s | New Thinks",
+    default: "와이피 | Content Driven Company",
+    template: "%s | 와이피",
   },
   description:
-    "전환을 만드는 영향력. 데이터 기반 인플루언서 마케팅으로 브랜드의 성장을 이끕니다.",
+    "콘텐츠의 영향력을 기반으로 브랜드, 마케팅, 커머스, 교육까지 확장하는 콘텐츠 중심 비즈니스",
   keywords: [
-    "인플루언서 마케팅",
-    "디지털 마케팅",
     "브랜드 마케팅",
-    "소셜 미디어 마케팅",
-    "influencer marketing",
-    "digital marketing",
+    "커머스 마케팅",
+    "교육 마케팅",
+    "콘텐츠 마케팅",
+    "콘텐츠 제작",
+    "디지털 마케팅",
+    "커머스",
+    "콘텐츠 중심 비즈니스",
   ],
   authors: [{ name: "New Thinks" }],
   creator: "New Thinks",
@@ -34,22 +36,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "ko_KR",
     url: siteUrl,
-    siteName: "New Thinks",
-    title: "New Thinks | Influence That Converts",
-    description: "전환을 만드는 영향력. 데이터 기반 인플루언서 마케팅.",
+    siteName: "와이피",
+    title: "와이피 | Content Driven Company",
+    description: "콘텐츠의 영향력을 기반으로 브랜드, 마케팅, 커머스, 교육까지 확장하는 콘텐츠 중심 비즈니스",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "New Thinks",
+        alt: "와이피",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "New Thinks | Influence That Converts",
-    description: "전환을 만드는 영향력. 데이터 기반 인플루언서 마케팅.",
+    title: "와이피 | Content Driven Company",
+    description: "콘텐츠의 영향력을 기반으로 브랜드, 마케팅, 커머스, 교육까지 확장하는 콘텐츠 중심 비즈니스",
     images: ["/og-image.png"],
   },
   robots: {
@@ -82,9 +84,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const websiteSchema = createWebSiteSchema({
-    name: "New Thinks",
+    name: "와이피",
     url: siteUrl,
-    description: "전환을 만드는 영향력. 데이터 기반 인플루언서 마케팅.",
+    description: "콘텐츠의 영향력을 기반으로 브랜드, 마케팅, 커머스, 교육까지 확장하는 콘텐츠 중심 비즈니스",
   });
 
   return (

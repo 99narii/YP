@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Container } from "@/components/common/Container";
 
 const FooterWrapper = styled.footer`
-  background-color: ${({ theme }) => theme.colors.neutral[900]};
+  background-color: ${({ theme }) => theme.colors.blue[500]};
   color: ${({ theme }) => theme.colors.neutral[0]};
   padding: ${({ theme }) => theme.spacing.xxl} 0;
 `;
@@ -35,7 +35,7 @@ const FooterLogo = styled.div`
 
 const FooterDescription = styled.p`
   ${({ theme }) => theme.typography.body2}
-  color: ${({ theme }) => theme.colors.neutral[300]};
+  color: rgba(255, 255, 255, 0.8);
 `;
 
 const FooterNav = styled.nav`
@@ -75,7 +75,7 @@ const FooterNavLink = styled(Link)`
 const FooterBottom = styled.div`
   margin-top: ${({ theme }) => theme.spacing.xl};
   padding-top: ${({ theme }) => theme.spacing.lg};
-  border-top: 1px solid ${({ theme }) => theme.colors.neutral[700]};
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.sm};
@@ -89,7 +89,7 @@ const FooterBottom = styled.div`
 
 const Copyright = styled.p`
   ${({ theme }) => theme.typography.caption}
-  color: ${({ theme }) => theme.colors.neutral[500]};
+  color: rgba(255, 255, 255, 0.7);
 `;
 
 interface FooterProps {
@@ -104,14 +104,14 @@ export function Footer({ description }: FooterProps) {
       <Container>
         <FooterInner>
           <FooterBrand>
-            <FooterLogo>New Thinks</FooterLogo>
+            <FooterLogo>와이피</FooterLogo>
             <FooterDescription>
-              {description || "Influence That Converts. 전환을 만드는 영향력."}
+              {description || "Content Driven Company"}
             </FooterDescription>
           </FooterBrand>
 
           <FooterNav aria-label="푸터 네비게이션">
-            <FooterNavSection>
+            {/* <FooterNavSection>
               <FooterNavTitle>Services</FooterNavTitle>
               <FooterNavList>
                 <li>
@@ -136,7 +136,7 @@ export function Footer({ description }: FooterProps) {
                   <FooterNavLink href="#contact">Contact</FooterNavLink>
                 </li>
               </FooterNavList>
-            </FooterNavSection>
+            </FooterNavSection> */}
           </FooterNav>
         </FooterInner>
 

@@ -225,13 +225,13 @@ const MemberRole = styled.span`
 
 const MemberDescription = styled.p`
   font-family: var(--font-noto-sans-kr), sans-serif;
-  font-size: 0.75rem;
+  font-size: 12px;
   color: ${({ theme }) => theme.colors.neutral[0]};
   opacity: 0.8;
   line-height: 1.5;
 
-  ${({ theme }) => theme.media.tabletUp} {
-    font-size: 1rem;
+  @media (min-width: 1024px) {
+    font-size: 16px;
     line-height: 1.6;
   }
 `;

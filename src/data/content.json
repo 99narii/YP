@@ -114,9 +114,9 @@
       "description": "브랜드 맞춤형 인플루언서 마케팅 전략을 제안합니다."
     },
     "academy": {
-      "overline": "Academy",
-      "title": "New Thinks Academy",
-      "description": "인플루언서와 마케터를 위한 전문 교육 프로그램을 운영합니다."
+      "overline": "BOOTCAMP",
+      "title": "실전형 콘텐츠 교육 프로그램",
+      "description": "와이피는 콘텐츠 제작과 유튜브 채널 운영, 디지털 마케팅에 대한 실전형 교육 프로그램을 운영합니다.\n실무 경험을 기반으로 한 커리큘럼을 통해 콘텐츠 제작자, 크리에이터, 브랜드 관계자들이 실제 시장에서 바로 활용할 수 있는 역량을 키울 수 있도록 돕고 있습니다.\n단순 이론 교육이 아닌 실제 시장에서 활용 가능한 실무 중심 교육을 지향합니다."
     },
     "contact": {
       "overline": "Contact",
@@ -125,10 +125,10 @@
     }
   },
   "header": {
-    "logo": "New Thinks",
+    "logo": "와이피",
     "contact": "CONTACT"
   },
   "footer": {
-    "description": "Influence That Converts. 전환을 만드는 영향력."
+    "description": "콘텐츠의 영향력을 기반으로 브랜드, 마케팅, 커머스, 교육까지 확장하는 콘텐츠 중심 비즈니스"
   }
 }

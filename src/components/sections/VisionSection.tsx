@@ -203,7 +203,7 @@ const NavItem = styled.button<{ $isActive: boolean }>`
   align-items: center;
   justify-content: center;
   font-family: var(--font-noto-sans-kr), sans-serif;
-  font-size: 0.5rem;
+  font-size: 10px;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.neutral[0]};
   letter-spacing: 0.02em;
@@ -226,7 +226,7 @@ const NavItem = styled.button<{ $isActive: boolean }>`
     width: 50px;
     height: 120px;
     padding: 0;
-    font-size: 0.75rem;
+    font-size: 10px;
 
     span {
       transform: rotate(-90deg);
