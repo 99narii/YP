@@ -1,0 +1,134 @@
+{
+  "hero": {
+    "marquee": {
+      "text": "We Build Influence That Converts"
+    },
+    "qr": {
+      "label": "scan here",
+      "imageSrc": "/images/qr.png",
+      "imageAlt": "QR 코드"
+    },
+    "description": {
+      "headline": "영향력을 설계하고, 결과로 증명합니다.",
+      "body": "뉴띵스는 콘텐츠로 브랜드의 미래를 만드는 크리에이티브 그룹입니다."
+    }
+  },
+  "sections": {
+    "about": {
+      "overline": "About Us",
+      "title": "콘텐츠 기반 비즈니스 설계",
+      "description": "뉴띵스는 콘텐츠 기반 비즈니스 모델을 설계하는 크리에이티브 그룹입니다. 우리는 단순 제작사가 아닙니다.\n\n기획, 촬영, 편집, 확산, 전환까지 브랜드의 성장을 구조적으로 설계합니다. 조회수를 만드는 것이 아니라 신뢰를 만들고, 노출을 만드는 것이 아니라 전환을 만듭니다.",
+      "lottie": "/lottie/plan.json"
+    },
+    "vision": {
+      "overline": "Vision",
+      "title": "우리의 비전",
+      "description": "진정성 있는 영향력으로 브랜드와 소비자를 연결하고, 마케팅의 새로운 패러다임을 만들어갑니다.",
+      "cards": [
+        {
+          "title": "체질 개선",
+          "description": "콘텐츠로 브랜드의 체질을 근본적으로 바꿉니다. 단기 성과가 아닌 장기 성장 구조를 만듭니다."
+        },
+        {
+          "title": "구조적 성장",
+          "description": "일회성 바이럴이 아닌 구조적 성장을 설계합니다. 지속 가능한 콘텐츠 생태계를 구축합니다."
+        },
+        {
+          "title": "선한 영향력",
+          "description": "선한 영향력을 지속 가능한 비즈니스 모델로 만듭니다. 좋은 일을 하면 좋은 일이 생깁니다."
+        }
+      ],
+      "finalText": "CREATIVE"
+    },
+    "milestones": {
+      "overline": "Milestones",
+      "title": "우리의 여정",
+      "description": "설립부터 현재까지, New Thinks가 걸어온 길을 소개합니다.",
+      "items": [
+        {
+          "date": "2023.03",
+          "title": "뉴띵스 설립",
+          "description": "콘텐츠로 영향력을 설계하는 여정의 시작"
+        },
+        {
+          "date": "2023.11",
+          "title": "누적 조회수 1,000만 돌파",
+          "description": "콘텐츠 파워의 증명"
+        },
+        {
+          "date": "2024.05",
+          "title": "브랜드 협업 50건 돌파",
+          "description": "신뢰할 수 있는 파트너로 성장"
+        },
+        {
+          "date": "2025.01",
+          "title": "Academy 런칭",
+          "description": "경험을 교육으로, 노하우를 커리큘럼으로"
+        }
+      ]
+    },
+    "team": {
+      "overline": "Our Team",
+      "title": "함께하는 사람들",
+      "description": "열정과 전문성을 갖춘 팀원들이 브랜드의 성공을 위해 함께합니다.",
+      "members": [
+        {
+          "name": "김유한",
+          "role": "CEO",
+          "description": "콘텐츠로 영향력을 설계하는 전략가. 비즈니스 구조와 방향성을 총괄합니다.",
+          "imageSrc": "/images/team/ceo.jpg"
+        },
+        {
+          "name": "박동규",
+          "role": "Director",
+          "description": "사업 구조 및 수익 모델 설계. 마케팅 전략 및 파트너십 운영을 담당합니다.",
+          "imageSrc": "/images/team/director.jpg"
+        },
+        {
+          "name": "이규한",
+          "role": "CD",
+          "description": "스토리를 설계하고 메시지를 구조화합니다. 브랜드 내러티브 및 기획안을 담당합니다.",
+          "imageSrc": "/images/team/cd.jpg"
+        },
+        {
+          "name": "권푸름",
+          "role": "PD",
+          "description": "촬영 및 연출, 편집을 담당합니다. 영상 퀄리티(촬영, 편집)와 현장 디렉팅을 총괄합니다.",
+          "imageSrc": "/images/team/pd.jpg"
+        }
+      ]
+    },
+    "youtube": {
+      "overline": "YouTube Channel",
+      "title": "우리의 콘텐츠",
+      "description": "New Thinks의 유튜브 채널에서 마케팅 인사이트를 만나보세요."
+    },
+    "youtubeIntro": {
+      "overline": "YouTube Introduction",
+      "title": "채널 소개",
+      "description": "인플루언서 마케팅의 모든 것을 다루는 콘텐츠를 제공합니다."
+    },
+    "marketing": {
+      "overline": "Marketing",
+      "title": "마케팅 서비스",
+      "description": "브랜드 맞춤형 인플루언서 마케팅 전략을 제안합니다."
+    },
+    "academy": {
+      "overline": "Academy",
+      "title": "New Thinks Academy",
+      "description": "인플루언서와 마케터를 위한 전문 교육 프로그램을 운영합니다."
+    },
+    "contact": {
+      "overline": "Contact",
+      "title": "문의하기",
+      "description": "프로젝트에 대해 이야기 나눠보세요. 언제든 연락주세요."
+    }
+  },
+  "header": {
+    "logo": "New Thinks",
+    "contact": "CONTACT"
+  },
+  "footer": {
+    "description": "Influence That Converts. 전환을 만드는 영향력."
+  }
+}
