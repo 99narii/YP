@@ -27,6 +27,7 @@ export const colors = {
   },
   system: {
     success: "#00C853",
+    warning: "#FFD700",
     error: "#FF3D00",
   },
 } as const;

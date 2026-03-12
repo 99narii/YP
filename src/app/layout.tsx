@@ -4,7 +4,7 @@ import { fontVariables } from "@/lib/fonts";
 import { JsonLd, createWebSiteSchema } from "@/components/seo/JsonLd";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://new-thinks.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://YP.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     "커머스",
     "콘텐츠 중심 비즈니스",
   ],
-  authors: [{ name: "New Thinks" }],
-  creator: "New Thinks",
-  publisher: "New Thinks",
+  authors: [{ name: "YP" }],
+  creator: "YP",
+  publisher: "YP",
   formatDetection: {
     email: false,
     address: false,

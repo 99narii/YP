@@ -1,13 +1,17 @@
 "use client";
 
 import styled from "styled-components";
-import Link from "next/link";
 import { Container } from "@/components/common/Container";
+import content from "@/data/content.json";
 
 const FooterWrapper = styled.footer`
   background-color: ${({ theme }) => theme.colors.blue[500]};
   color: ${({ theme }) => theme.colors.neutral[0]};
-  padding: ${({ theme }) => theme.spacing.xxl} 0;
+  padding: ${({ theme }) => theme.spacing.xl} 0;
+
+  ${({ theme }) => theme.media.tabletUp} {
+    padding: ${({ theme }) => theme.spacing.xl} 0;
+  }
 `;
 
 const FooterInner = styled.div`
@@ -23,7 +27,7 @@ const FooterInner = styled.div`
 `;
 
 const FooterBrand = styled.div`
-  max-width: 300px;
+  max-width: 100%;
 `;
 
 const FooterLogo = styled.div`
@@ -36,45 +40,15 @@ const FooterLogo = styled.div`
 const FooterDescription = styled.p`
   ${({ theme }) => theme.typography.body2}
   color: rgba(255, 255, 255, 0.8);
-`;
-
-const FooterNav = styled.nav`
-  display: flex;
-  flex-wrap: wrap;
-  gap: ${({ theme }) => theme.spacing.xl};
 
   ${({ theme }) => theme.media.tabletUp} {
-    gap: ${({ theme }) => theme.spacing.xxl};
-  }
-`;
-
-const FooterNavSection = styled.div``;
-
-const FooterNavTitle = styled.h3`
-  ${({ theme }) => theme.typography.overline}
-  color: ${({ theme }) => theme.colors.neutral[0]};
-  margin-bottom: ${({ theme }) => theme.spacing.md};
-`;
-
-const FooterNavList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.sm};
-`;
-
-const FooterNavLink = styled(Link)`
-  ${({ theme }) => theme.typography.body2}
-  color: ${({ theme }) => theme.colors.neutral[300]};
-  transition: ${({ theme }) => theme.transitions.fast};
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.neutral[0]};
+    white-space: nowrap;
   }
 `;
 
 const FooterBottom = styled.div`
-  margin-top: ${({ theme }) => theme.spacing.xl};
-  padding-top: ${({ theme }) => theme.spacing.lg};
+  margin-top: ${({ theme }) => theme.spacing.lg};
+  padding-top: ${({ theme }) => theme.spacing.md};
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   flex-direction: column;
@@ -92,57 +66,64 @@ const Copyright = styled.p`
   color: rgba(255, 255, 255, 0.7);
 `;
 
+const CompanyInfo = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: ${({ theme }) => theme.spacing.xs} ${({ theme }) => theme.spacing.md};
+
+  ${({ theme }) => theme.media.tabletUp} {
+    gap: ${({ theme }) => theme.spacing.md};
+  }
+`;
+
+const InfoItem = styled.span`
+  ${({ theme }) => theme.typography.caption}
+  color: rgba(255, 255, 255, 0.7);
+
+  strong {
+    color: rgba(255, 255, 255, 0.9);
+    margin-right: 4px;
+  }
+`;
+
 interface FooterProps {
   description?: string;
 }
 
 export function Footer({ description }: FooterProps) {
   const currentYear = new Date().getFullYear();
+  const { footer } = content;
 
   return (
     <FooterWrapper role="contentinfo">
       <Container>
         <FooterInner>
           <FooterBrand>
-            <FooterLogo>와이피</FooterLogo>
+            <FooterLogo>{footer.company.name}</FooterLogo>
             <FooterDescription>
-              {description || "Content Driven Company"}
+              {description || footer.description}
             </FooterDescription>
           </FooterBrand>
-
-          <FooterNav aria-label="푸터 네비게이션">
-            {/* <FooterNavSection>
-              <FooterNavTitle>Services</FooterNavTitle>
-              <FooterNavList>
-                <li>
-                  <FooterNavLink href="#strategy">Strategy</FooterNavLink>
-                </li>
-                <li>
-                  <FooterNavLink href="#creative">Creative</FooterNavLink>
-                </li>
-                <li>
-                  <FooterNavLink href="#analytics">Analytics</FooterNavLink>
-                </li>
-              </FooterNavList>
-            </FooterNavSection>
-
-            <FooterNavSection>
-              <FooterNavTitle>Company</FooterNavTitle>
-              <FooterNavList>
-                <li>
-                  <FooterNavLink href="#about">About</FooterNavLink>
-                </li>
-                <li>
-                  <FooterNavLink href="#contact">Contact</FooterNavLink>
-                </li>
-              </FooterNavList>
-            </FooterNavSection> */}
-          </FooterNav>
         </FooterInner>
 
         <FooterBottom>
+          <CompanyInfo>
+            <InfoItem>
+              <strong>회사명</strong>{footer.company.name}
+            </InfoItem>
+            <InfoItem>
+              <strong>대표자</strong>{footer.company.ceo}
+            </InfoItem>
+            <InfoItem>
+              <strong>이메일</strong>{footer.company.email}
+            </InfoItem>
+            <InfoItem>
+              <strong>연락처</strong>{footer.company.phone}
+            </InfoItem>
+          </CompanyInfo>
           <Copyright>
-            &copy; {currentYear} New Thinks. All rights reserved.
+            &copy; {currentYear} YP. All rights reserved.
           </Copyright>
         </FooterBottom>
       </Container>

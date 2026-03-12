@@ -57,7 +57,7 @@ const Nav = styled.nav`
 `;
 
 const NavLink = styled(Link)`
-  font-size: 0.875rem;
+  ${({ theme }) => theme.typography.body1}
   font-weight: 500;
   color: ${({ theme }) => theme.colors.neutral[0]};
   padding: ${({ theme }) => theme.spacing.xs} ${({ theme }) => theme.spacing.md};
@@ -68,6 +68,13 @@ const NavLink = styled(Link)`
     color: ${({ theme }) => theme.colors.neutral[0]};
     background-color: rgba(255, 255, 255, 0.15);
   }
+`;
+
+const NavDivider = styled.span`
+  ${({ theme }) => theme.typography.body1}
+  color: ${({ theme }) => theme.colors.neutral[0]};
+  opacity: 0.3;
+  padding: 0 ${({ theme }) => theme.spacing.xs};
 `;
 
 // 우측 Contact 버튼
@@ -154,23 +161,39 @@ const MobileNavLink = styled(Link)`
   padding: ${({ theme }) => theme.spacing.sm} 0;
 `;
 
-interface HeaderProps {
-  navItems?: { label: string; href: string }[];
+interface NavItem {
+  label: string;
+  href: string;
 }
 
-export function Header({ navItems = [] }: HeaderProps) {
+interface HeaderProps {
+  pageLinks?: NavItem[];
+  sectionLinks?: NavItem[];
+}
+
+export function Header({ pageLinks = [], sectionLinks = [] }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const allLinks = [...pageLinks, ...sectionLinks];
 
   return (
     <>
       <HeaderWrapper role="banner">
         <HeaderInner>
           <Logo href="/" aria-label="홈으로 이동">
-            New Thinks
+            YP
           </Logo>
 
           <Nav role="navigation" aria-label="메인 네비게이션">
-            {navItems.map((item) => (
+            {pageLinks.map((item) => (
+              <NavLink key={item.href} href={item.href}>
+                {item.label}
+              </NavLink>
+            ))}
+            {pageLinks.length > 0 && sectionLinks.length > 0 && (
+              <NavDivider>|</NavDivider>
+            )}
+            {sectionLinks.map((item) => (
               <NavLink key={item.href} href={item.href}>
                 {item.label}
               </NavLink>
@@ -196,7 +219,7 @@ export function Header({ navItems = [] }: HeaderProps) {
         role="navigation"
         aria-label="모바일 네비게이션"
       >
-        {navItems.map((item) => (
+        {allLinks.map((item) => (
           <MobileNavLink
             key={item.href}
             href={item.href}

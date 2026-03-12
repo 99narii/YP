@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import styled, { keyframes, css } from "styled-components";
 import Image from "next/image";
+import content from "@/data/content.json";
 
 interface TeamMember {
   name: string;
@@ -56,36 +57,44 @@ const Container = styled.div`
   padding: 0 ${({ theme }) => theme.spacing.lg};
 `;
 
-const Header = styled.div<{ $isVisible: boolean }>`
+const IntroSection = styled.div<{ $isVisible: boolean }>`
+  max-width: 900px;
+  margin: 0 auto 80px;
   text-align: center;
-  margin-bottom: 60px;
-  opacity: 0;
+  opacity: ${({ $isVisible }) => ($isVisible ? 0 : 1)};
 
   ${({ $isVisible }) =>
     $isVisible &&
     css`
       animation: ${fadeInUp} 0.8s ease-out forwards;
+      animation-delay: 0.2s;
     `}
 
   ${({ theme }) => theme.media.tabletUp} {
-    margin-bottom: 80px;
+    margin-bottom: 120px;
   }
 `;
 
-const Title = styled.h2`
-  font-family: var(--font-playfair), Georgia, serif;
-  font-size: clamp(2rem, 6vw, 4rem);
+const IntroTitle = styled.h3`
+  font-family: var(--font-noto-sans-kr), sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 700;
   color: ${({ theme }) => theme.colors.neutral[0]};
-  letter-spacing: -0.02em;
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  margin-bottom: ${({ theme }) => theme.spacing.xl};
+  line-height: 1.4;
 `;
 
-const Subtitle = styled.p`
+const IntroParagraph = styled.p`
   font-family: var(--font-noto-sans-kr), sans-serif;
   font-size: clamp(1rem, 2vw, 1.25rem);
   color: ${({ theme }) => theme.colors.neutral[0]};
-  opacity: 0.8;
+  opacity: 0.85;
+  line-height: 1.9;
+  margin-bottom: ${({ theme }) => theme.spacing.md};
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const TeamGrid = styled.div`
@@ -105,7 +114,7 @@ const TeamGrid = styled.div`
 `;
 
 const MemberCard = styled.div<{ $index: number; $isVisible: boolean }>`
-  opacity: 0;
+  opacity: ${({ $isVisible }) => ($isVisible ? 0 : 1)};
   display: flex;
   flex-direction: column;
 
@@ -133,7 +142,7 @@ const ImageWrapper = styled.div<{ $index: number; $isVisible: boolean }>`
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   border: 1px solid ${({ theme }) => theme.colors.neutral[0]};
-  opacity: 0;
+  opacity: ${({ $isVisible }) => ($isVisible ? 0 : 1)};
 
   ${({ theme }) => theme.media.tabletUp} {
     width: 150px;
@@ -162,7 +171,7 @@ const ContentBox = styled.div<{ $index: number; $isVisible: boolean }>`
   border-left: 1px solid rgba(255, 255, 255, 0.6);
   border-right: 1px solid rgba(255, 255, 255, 0.6);
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
-  opacity: 0;
+  opacity: ${({ $isVisible }) => ($isVisible ? 0 : 1)};
 
   ${({ theme }) => theme.media.tabletUp} {
     padding: ${({ theme }) => theme.spacing.lg};
@@ -215,7 +224,7 @@ const MemberRole = styled.span`
   font-family: var(--font-noto-sans-kr), sans-serif;
   font-size: 0.75rem;
   font-weight: 500;
-  color: #FFD700;
+  color: ${({ theme }) => theme.colors.blue[50]};
   letter-spacing: 0.02em;
 
   ${({ theme }) => theme.media.tabletUp} {
@@ -229,6 +238,7 @@ const MemberDescription = styled.p`
   color: ${({ theme }) => theme.colors.neutral[0]};
   opacity: 0.8;
   line-height: 1.5;
+  white-space: pre-line;
 
   @media (min-width: 1024px) {
     font-size: 16px;
@@ -268,10 +278,12 @@ export function TeamSection({ members }: TeamSectionProps) {
   return (
     <SectionWrapper ref={sectionRef} id="team" aria-label="팀 소개 섹션">
       <Container>
-        <Header $isVisible={isVisible}>
-          <Title>OUR TEAM</Title>
-          <Subtitle>열정과 전문성을 갖춘 팀원들이 브랜드의 성공을 위해 함께합니다</Subtitle>
-        </Header>
+        <IntroSection $isVisible={isVisible}>
+          <IntroTitle>{content.sections.team.intro.title}</IntroTitle>
+          {content.sections.team.intro.paragraphs.map((paragraph, index) => (
+            <IntroParagraph key={index}>{paragraph}</IntroParagraph>
+          ))}
+        </IntroSection>
 
         <TeamGrid>
           {members.map((member, index) => (

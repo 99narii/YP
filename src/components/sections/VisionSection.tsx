@@ -69,13 +69,13 @@ const CardContent = styled.div`
 
 const CardNumber = styled.span`
   font-family: var(--font-playfair), Georgia, serif;
-  font-size: 1.25rem;
-  color: #FFD700;
+  ${({ theme }) => theme.typography.body1}
+  color: ${({ theme }) => theme.colors.blue[50]};
   margin-bottom: ${({ theme }) => theme.spacing.md};
   display: block;
 
   ${({ theme }) => theme.media.tabletUp} {
-    font-size: 1.5rem;
+    ${({ theme }) => theme.typography.h3}
     margin-bottom: ${({ theme }) => theme.spacing.lg};
   }
 `;
@@ -130,14 +130,20 @@ const SwipeGuide = styled.div`
 `;
 
 
+const SwipeText = styled.span`
+  font-family: var(--font-noto-sans-kr), sans-serif;
+  ${({ theme }) => theme.typography.overline}
+  font-weight: 500;
+`;
+
 const SwipeArrow = styled.span`
   display: flex;
   align-items: center;
   animation: swipeArrow 1.5s ease-in-out infinite;
 
   svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
 `;
 
@@ -163,9 +169,9 @@ const FinalText = styled.span`
 
 const MobileNav = styled.div`
   position: absolute;
-  top: 16px;
-  left: 16px;
-  right: 16px;
+  top: ${({ theme }) => theme.spacing.md};
+  left: ${({ theme }) => theme.spacing.md};
+  right: ${({ theme }) => theme.spacing.md};
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -198,15 +204,13 @@ const NavItem = styled.button<{ $isActive: boolean }>`
     $isActive ? "rgba(255, 255, 255, 0.2)" : "transparent"};
   border: 1px solid ${({ theme }) => theme.colors.neutral[0]};
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: ${({ theme }) => theme.transitions.normal};
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-noto-sans-kr), sans-serif;
-  font-size: 10px;
-  font-weight: 500;
+  ${({ theme }) => theme.typography.caption}
   color: ${({ theme }) => theme.colors.neutral[0]};
-  letter-spacing: 0.02em;
   white-space: nowrap;
   margin-left: -1px;
   outline: none;
@@ -215,7 +219,7 @@ const NavItem = styled.button<{ $isActive: boolean }>`
   /* 모바일: 가로형 - 더 작게 */
   width: auto;
   height: 28px;
-  padding: 0 8px;
+  padding: 0 ${({ theme }) => theme.spacing.sm};
 
   span {
     transform: none;
@@ -226,7 +230,6 @@ const NavItem = styled.button<{ $isActive: boolean }>`
     width: 50px;
     height: 120px;
     padding: 0;
-    font-size: 10px;
 
     span {
       transform: rotate(-90deg);
@@ -308,6 +311,7 @@ export function VisionSection({ cards, finalText }: VisionSectionProps) {
         <IntroSlide>
           <IntroText>VISION</IntroText>
           <SwipeGuide>
+            <SwipeText>Swipe</SwipeText>
             <SwipeArrow>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />

@@ -6,19 +6,50 @@
     "qr": {
       "label": "scan here",
       "imageSrc": "/images/qr.png",
-      "imageAlt": "QR 코드"
+      "imageAlt": "킴브로 유튜브 채널 QR 코드"
     },
     "description": {
       "headline": "영향력을 설계하고, 결과로 증명합니다.",
-      "body": "뉴띵스는 콘텐츠로 브랜드의 미래를 만드는 크리에이티브 그룹입니다."
+      "body": "와이피는 콘텐츠로 브랜드의 미래를 만드는 크리에이티브 그룹입니다."
     }
+  },
+  "aboutHero": {
+    "overline": "ABOUT US",
+    "paragraphs": [
+      { "text": "콘텐츠로 새로운 비즈니스를 만듭니다.", "bold": true },
+      { "text": "와이피는 ", "bold": false },
+      { "text": "유튜브 채널 킴브로를 기반", "bold": true },
+      { "text": "으로 시작된 ", "bold": false },
+      { "text": "콘텐츠 중심 기업", "bold": true },
+      { "text": "입니다.", "bold": false, "break": true },
+      { "text": "콘텐츠는 단순한 조회수와 화제성을 넘어 ", "bold": false },
+      { "text": "브랜드와 시장을 움직이는 강력한 비즈니스 도구", "bold": true },
+      { "text": "가 될 수 있다고 믿습니다.", "bold": false, "break": true },
+      { "text": "와이피는 ", "bold": false },
+      { "text": "콘텐츠를 통해 사람과 브랜드를 연결하고 새로운 비즈니스 기회", "bold": true },
+      { "text": "를 만들어가는 것을 목표로 합니다.", "bold": false, "break": true },
+      { "text": "콘텐츠 기획과 제작, 브랜드 마케팅, 커머스, 교육까지 콘텐츠를 중심으로 ", "bold": false },
+      { "text": "다양한 사업 영역을 확장하며 지속 가능한 콘텐츠 비즈니스 모델을 구축", "bold": true },
+      { "text": "해 나가고 있습니다.", "bold": false }
+    ]
   },
   "sections": {
     "about": {
       "overline": "About Us",
       "title": "콘텐츠 기반 비즈니스 설계",
-      "description": "뉴띵스는 콘텐츠 기반 비즈니스 모델을 설계하는 크리에이티브 그룹입니다. 우리는 단순 제작사가 아닙니다.\n\n기획, 촬영, 편집, 확산, 전환까지 브랜드의 성장을 구조적으로 설계합니다. 조회수를 만드는 것이 아니라 신뢰를 만들고, 노출을 만드는 것이 아니라 전환을 만듭니다.",
+      "description": "와이피는 콘텐츠 기반 비즈니스 모델을 설계하는 크리에이티브 그룹입니다. 우리는 단순 제작사가 아닙니다.\n\n기획, 촬영, 편집, 확산, 전환까지 브랜드의 성장을 구조적으로 설계합니다. 조회수를 만드는 것이 아니라 신뢰를 만들고, 노출을 만드는 것이 아니라 전환을 만듭니다.",
       "lottie": "/lottie/plan.json"
+    },
+    "ourBusiness": {
+      "overline": "OUR BUSINESS",
+      "description": "와이피는 콘텐츠를 중심으로 다음과 같은 사업 영역을 운영하고 있습니다.",
+      "items": [
+        "콘텐츠 채널 운영 및 콘텐츠 IP 제작",
+        "콘텐츠 기반 브랜드 마케팅",
+        "콘텐츠 커머스 사업",
+        "콘텐츠 및 디지털 마케팅 교육 프로그램 운영"
+      ],
+      "closing": "콘텐츠의 영향력을 기반으로 브랜드와 시장을 연결하며 콘텐츠 비즈니스의 새로운 가능성을 만들어가고 있습니다."
     },
     "vision": {
       "overline": "Vision",
@@ -43,11 +74,11 @@
     "milestones": {
       "overline": "Milestones",
       "title": "우리의 여정",
-      "description": "설립부터 현재까지, New Thinks가 걸어온 길을 소개합니다.",
+      "description": "설립부터 현재까지, YP가 걸어온 길을 소개합니다.",
       "items": [
         {
           "date": "2023.03",
-          "title": "뉴띵스 설립",
+          "title": "와이피 설립",
           "description": "콘텐츠로 영향력을 설계하는 여정의 시작"
         },
         {
@@ -71,37 +102,45 @@
       "overline": "Our Team",
       "title": "함께하는 사람들",
       "description": "열정과 전문성을 갖춘 팀원들이 브랜드의 성공을 위해 함께합니다.",
+      "intro": {
+        "title": "영향력이 비즈니스를 만듭니다",
+        "paragraphs": [
+          "와이피는 콘텐츠의 영향력이 새로운 비즈니스를 만들어낸다고 믿습니다.",
+          "콘텐츠는 사람을 움직이고 브랜드를 성장시키며 시장을 변화시키는 힘을 가지고 있습니다.",
+          "와이피는 콘텐츠를 통해 브랜드와 사람을 연결하고 새로운 가능성과 기회를 만들어가는 콘텐츠 비즈니스 기업으로 성장하고 있습니다."
+        ]
+      },
       "members": [
         {
           "name": "김유한",
-          "role": "CEO",
-          "description": "콘텐츠로 영향력을 설계하는 전략가. 비즈니스 구조와 방향성을 총괄합니다.",
+          "role": "대표",
+          "description": "와이피의 전반적인 사업 운영과 전략을 총괄하고 있습니다.\n콘텐츠 제작과 채널 운영을 기반으로 마케팅, 커머스, 교육 사업까지 확장하며 콘텐츠 비즈니스의 방향성과 성장을 이끌고 있습니다.\n콘텐츠를 통해 새로운 기회를 만들고 브랜드와 시장을 연결하는 콘텐츠 비즈니스 모델을 구축하는 것을 목표로 하고 있습니다.",
           "imageSrc": "/images/team/ceo.jpg"
         },
         {
           "name": "박동규",
-          "role": "Director",
-          "description": "사업 구조 및 수익 모델 설계. 마케팅 전략 및 파트너십 운영을 담당합니다.",
+          "role": "이사",
+          "description": "콘텐츠 전략 및 사업 기획을 담당하고 있습니다.\n콘텐츠 IP 기획과 채널 전략 수립을 중심으로 콘텐츠 기반 비즈니스 확장과 브랜드 협업 프로젝트를 함께 진행하고 있습니다.",
           "imageSrc": "/images/team/director.jpg"
-        },
-        {
-          "name": "이규한",
-          "role": "CD",
-          "description": "스토리를 설계하고 메시지를 구조화합니다. 브랜드 내러티브 및 기획안을 담당합니다.",
-          "imageSrc": "/images/team/cd.jpg"
         },
         {
           "name": "권푸름",
           "role": "PD",
-          "description": "촬영 및 연출, 편집을 담당합니다. 영상 퀄리티(촬영, 편집)와 현장 디렉팅을 총괄합니다.",
+          "description": "유튜브 콘텐츠 기획 및 제작을 담당하고 있습니다.\n촬영, 편집, 콘텐츠 기획 등 콘텐츠 제작 전반을 담당하며 채널의 완성도와 콘텐츠 퀄리티를 높이는 역할을 맡고 있습니다.",
           "imageSrc": "/images/team/pd.jpg"
+        },
+        {
+          "name": "이규한",
+          "role": "CD",
+          "description": "콘텐츠 디렉션 및 브랜드 협업 프로젝트를 담당하고 있습니다.\n콘텐츠 기획과 브랜드 협업 전략을 설계하며 콘텐츠와 브랜드가 자연스럽게 연결될 수 있는 프로젝트 운영과 콘텐츠 방향성을 함께 만들어가고 있습니다.",
+          "imageSrc": "/images/team/cd.jpg"
         }
       ]
     },
     "youtube": {
       "overline": "YouTube Channel",
       "title": "우리의 콘텐츠",
-      "description": "New Thinks의 유튜브 채널에서 마케팅 인사이트를 만나보세요."
+      "description": "YP의 유튜브 채널에서 마케팅 인사이트를 만나보세요."
     },
     "youtubeIntro": {
       "overline": "YouTube Introduction",
@@ -109,26 +148,78 @@
       "description": "인플루언서 마케팅의 모든 것을 다루는 콘텐츠를 제공합니다."
     },
     "marketing": {
-      "overline": "Marketing",
-      "title": "마케팅 서비스",
-      "description": "브랜드 맞춤형 인플루언서 마케팅 전략을 제안합니다."
+      "overline": "MARKETING",
+      "title": "콘텐츠 기반 브랜드 마케팅",
+      "paragraphs": [
+        "와이피는 브랜드와 크리에이터를 연결하여 콘텐츠 중심의 마케팅 전략을 설계하고 실행합니다.\n\n브랜드 메시지를 자연스럽게 전달할 수 있는 콘텐츠 기획과 스토리텔링을 기반으로 단순 광고가 아닌 브랜드의 인지도와 신뢰도를 함께 높일 수 있는 콘텐츠 마케팅 솔루션을 제공합니다.",
+        "콘텐츠를 중심으로 브랜드와 소비자가 자연스럽게 연결되는 마케팅 구조를 만들어가고 있습니다."
+      ]
+    },
+    "commerce": {
+      "overline": "COMMERCE",
+      "title": "콘텐츠 기반 커머스",
+      "paragraphs": [
+        "와이피는 콘텐츠와 크리에이터의 영향력을 기반으로 제품과 브랜드를 기획하고 판매하는 콘텐츠 커머스 사업을 운영하고 있습니다.",
+        "콘텐츠를 통해 형성된 관심과 신뢰를 바탕으로 자연스럽게 소비로 이어지는 구조를 만들며 콘텐츠와 커머스가 유기적으로 연결되는 콘텐츠 비즈니스 모델을 구축하고 있습니다."
+      ],
+      "flow": [
+        { "label": "CONTENT", "description": "콘텐츠 제작" },
+        { "label": "TRUST", "description": "신뢰 형성" },
+        { "label": "COMMERCE", "description": "구매 전환" }
+      ]
     },
     "academy": {
       "overline": "BOOTCAMP",
       "title": "실전형 콘텐츠 교육 프로그램",
-      "description": "와이피는 콘텐츠 제작과 유튜브 채널 운영, 디지털 마케팅에 대한 실전형 교육 프로그램을 운영합니다.\n실무 경험을 기반으로 한 커리큘럼을 통해 콘텐츠 제작자, 크리에이터, 브랜드 관계자들이 실제 시장에서 바로 활용할 수 있는 역량을 키울 수 있도록 돕고 있습니다.\n단순 이론 교육이 아닌 실제 시장에서 활용 가능한 실무 중심 교육을 지향합니다."
+      "paragraphs": [
+        "와이피는 콘텐츠 제작과 유튜브 채널 운영, 디지털 마케팅에 대한 실전형 교육 프로그램을 운영합니다.",
+        "실무 경험을 기반으로 한 커리큘럼을 통해 콘텐츠 제작자, 크리에이터, 브랜드 관계자들이 실제 시장에서 바로 활용할 수 있는 역량을 키울 수 있도록 돕고 있습니다.",
+        "단순 이론 교육이 아닌 실제 시장에서 활용 가능한 실무 중심 교육을 지향합니다."
+      ],
+      "features": [
+        { "number": "01", "title": "콘텐츠 제작", "description": "기획부터 촬영, 편집까지" },
+        { "number": "02", "title": "채널 운영", "description": "유튜브 알고리즘과 성장 전략" },
+        { "number": "03", "title": "디지털 마케팅", "description": "브랜드 협업과 수익화" }
+      ]
     },
     "contact": {
-      "overline": "Contact",
-      "title": "문의하기",
-      "description": "프로젝트에 대해 이야기 나눠보세요. 언제든 연락주세요."
+      "overline": "CONTACT",
+      "title": "와이피와 함께하세요",
+      "paragraphs": [
+        "브랜드 협업, 마케팅 서비스, 아카데미 교육 등 다양한 방식으로 함께할 수 있습니다.",
+        "우리는 단순히 콘텐츠를 만드는 것이 아니라, 브랜드의 성장 파트너가 됩니다.",
+        "지금 바로 문의해주세요. 좋은 일을 함께 만들어갑시다."
+      ],
+      "form": {
+        "fields": [
+          { "name": "name", "label": "이름", "type": "text", "placeholder": "이름을 입력해주세요", "required": true },
+          { "name": "company", "label": "회사명", "type": "text", "placeholder": "회사명을 입력해주세요", "required": false },
+          { "name": "email", "label": "이메일", "type": "email", "placeholder": "이메일을 입력해주세요", "required": true },
+          { "name": "phone", "label": "연락처", "type": "tel", "placeholder": "연락처를 입력해주세요", "required": true },
+          { "name": "message", "label": "문의내용", "type": "textarea", "placeholder": "문의 내용을 입력해주세요 (선택)", "required": false }
+        ],
+        "privacyNotice": "개인정보 수집 및 이용에 동의하시면 문의가 접수됩니다. 영업일 기준 2일 이내 답변 드립니다.",
+        "privacyLabel": "개인정보 수집 및 이용에 동의합니다",
+        "submitButton": "문의하기"
+      }
     }
   },
   "header": {
     "logo": "와이피",
     "contact": "CONTACT"
   },
+  "social": {
+    "youtube": "https://www.youtube.com/@kimbro_",
+    "instagram": "https://www.instagram.com/youtuber_kimbro/",
+    "tiktok": "https://www.tiktok.com/@kimbro_tiktok"
+  },
   "footer": {
-    "description": "콘텐츠의 영향력을 기반으로 브랜드, 마케팅, 커머스, 교육까지 확장하는 콘텐츠 중심 비즈니스"
+    "description": "콘텐츠의 영향력을 기반으로 브랜드, 마케팅, 커머스, 교육까지 확장하는 콘텐츠 중심 비즈니스",
+    "company": {
+      "name": "YP",
+      "ceo": "김유한",
+      "email": "newthinksent@naver.com",
+      "phone": "+8210-2959-9797"
+    }
   }
 }

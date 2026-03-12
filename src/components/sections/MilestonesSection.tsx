@@ -125,7 +125,7 @@ const Container = styled.div`
 const Header = styled.div<{ $isVisible: boolean }>`
   text-align: center;
   margin-bottom: 80px;
-  opacity: 0;
+  opacity: ${({ $isVisible }) => ($isVisible ? 0 : 1)};
 
   ${({ $isVisible }) =>
     $isVisible &&
@@ -189,7 +189,7 @@ const MilestoneItem = styled.div<{ $index: number; $isVisible: boolean }>`
   position: relative;
   padding-left: 60px;
   padding-bottom: 60px;
-  opacity: 0;
+  opacity: ${({ $isVisible }) => ($isVisible ? 0 : 1)};
 
   ${({ $isVisible, $index }) =>
     $isVisible &&
@@ -253,7 +253,7 @@ const MilestoneDot = styled.div<{ $index: number; $isVisible: boolean }>`
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #FFFFFF;
+  background: ${({ theme }) => theme.colors.neutral[0]};
   border: 4px solid ${({ theme }) => theme.colors.blue[500]};
   transform: scale(0);
   z-index: 2;
@@ -275,7 +275,7 @@ const MilestoneDot = styled.div<{ $index: number; $isVisible: boolean }>`
 
 const MilestoneDate = styled.div<{ $index: number; $isVisible: boolean }>`
   margin-bottom: ${({ theme }) => theme.spacing.sm};
-  opacity: 0;
+  opacity: ${({ $isVisible }) => ($isVisible ? 0 : 1)};
 
   ${({ $isVisible, $index }) =>
     $isVisible &&
@@ -297,12 +297,12 @@ const DateText = styled.span`
   font-family: var(--font-noto-sans-kr), sans-serif;
   font-size: clamp(1rem, 2.5vw, 1.5rem);
   font-weight: 700;
-  color: #FFD700;
+  color: ${({ theme }) => theme.colors.blue[50]};
   letter-spacing: 0.05em;
 `;
 
 const MilestoneContent = styled.div<{ $index: number; $isVisible: boolean }>`
-  opacity: 0;
+  opacity: ${({ $isVisible }) => ($isVisible ? 0 : 1)};
 
   ${({ $isVisible, $index }) =>
     $isVisible &&

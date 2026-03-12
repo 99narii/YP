@@ -13,3 +13,4 @@ export {
   GradientText,
 } from "./Typography";
 export { AnimatedElement } from "./AnimatedElement";
+export { FloatingButtons } from "./FloatingButtons";

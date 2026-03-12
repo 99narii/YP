@@ -6,8 +6,10 @@ import dynamic from "next/dynamic";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { VisionSection } from "@/components/sections/VisionSection";
-import { MilestonesSection } from "@/components/sections/MilestonesSection";
-import { TeamSection } from "@/components/sections/TeamSection";
+import { MarketingSection } from "@/components/sections/MarketingSection";
+import { CommerceSection } from "@/components/sections/CommerceSection";
+import { AcademySection } from "@/components/sections/AcademySection";
+import { ContactSection } from "@/components/sections/ContactSection";
 import {
   Container,
   Section,
@@ -16,6 +18,7 @@ import {
   Body,
   Overline,
   AnimatedElement,
+  FloatingButtons,
 } from "@/components/common";
 import content from "@/data/content.json";
 import planAnimation from "@/../../public/lottie/plan.json";
@@ -322,12 +325,17 @@ const AboutDescription = styled(BodyLarge)`
 const Main = styled.main``;
 
 // 네비게이션 아이템
-const navItems = [
-  { label: "About", href: "#about" },
+const pageLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+];
+
+const sectionLinks = [
+  { label: "YP", href: "#about" },
   { label: "Vision", href: "#vision" },
-  { label: "Team", href: "#team" },
-  { label: "YouTube", href: "#youtube" },
-  { label: "Academy", href: "#academy" },
+  { label: "Marketing", href: "#marketing" },
+  { label: "Commerce", href: "#commerce" },
+  { label: "BootCamp", href: "#academy" },
 ];
 
 export default function Home() {
@@ -335,7 +343,7 @@ export default function Home() {
 
   return (
     <PageWrapper>
-      <Header navItems={navItems} />
+      <Header pageLinks={pageLinks} sectionLinks={sectionLinks} />
 
       <Main role="main">
         {/* Hero Section */}
@@ -429,80 +437,39 @@ export default function Home() {
           finalText={sections.vision.finalText}
         />
 
-        {/* Milestones Section */}
-        <MilestonesSection milestones={sections.milestones.items} />
-
-        {/* Our Team Section */}
-        <TeamSection members={sections.team.members} />
-
-        {/* YouTube Channel Link Section */}
-        <SectionStyled id="youtube" aria-label="유튜브 채널 섹션">
-          <Container>
-            <AnimatedElement>
-              <SectionOverline>{sections.youtube.overline}</SectionOverline>
-              <SectionTitle>{sections.youtube.title}</SectionTitle>
-              <SectionDescription>
-                {sections.youtube.description}
-              </SectionDescription>
-            </AnimatedElement>
-          </Container>
-        </SectionStyled>
-
-        {/* YouTube Introduction Section */}
-        <SectionStyled id="youtube-intro" aria-label="유튜브 소개 섹션">
-          <Container>
-            <AnimatedElement>
-              <SectionOverline>
-                {sections.youtubeIntro.overline}
-              </SectionOverline>
-              <SectionTitle>{sections.youtubeIntro.title}</SectionTitle>
-              <SectionDescription>
-                {sections.youtubeIntro.description}
-              </SectionDescription>
-            </AnimatedElement>
-          </Container>
-        </SectionStyled>
-
         {/* Marketing Section */}
-        <SectionStyled id="marketing" aria-label="마케팅 섹션">
-          <Container>
-            <AnimatedElement>
-              <SectionOverline>{sections.marketing.overline}</SectionOverline>
-              <SectionTitle>{sections.marketing.title}</SectionTitle>
-              <SectionDescription>
-                {sections.marketing.description}
-              </SectionDescription>
-            </AnimatedElement>
-          </Container>
-        </SectionStyled>
+        <MarketingSection
+          overline={sections.marketing.overline}
+          title={sections.marketing.title}
+          paragraphs={sections.marketing.paragraphs}
+        />
+
+        {/* Commerce Section */}
+        <CommerceSection
+          overline={sections.commerce.overline}
+          title={sections.commerce.title}
+          paragraphs={sections.commerce.paragraphs}
+          flow={sections.commerce.flow}
+        />
 
         {/* Academy Section */}
-        <SectionStyled id="academy" aria-label="아카데미 섹션">
-          <Container>
-            <AnimatedElement>
-              <SectionOverline>{sections.academy.overline}</SectionOverline>
-              <SectionTitle>{sections.academy.title}</SectionTitle>
-              <SectionDescription>
-                {sections.academy.description}
-              </SectionDescription>
-            </AnimatedElement>
-          </Container>
-        </SectionStyled>
+        <AcademySection
+          overline={sections.academy.overline}
+          title={sections.academy.title}
+          paragraphs={sections.academy.paragraphs}
+          features={sections.academy.features}
+        />
 
         {/* Contact Section */}
-        <SectionStyled id="contact" aria-label="연락처 섹션">
-          <Container>
-            <AnimatedElement>
-              <SectionOverline>{sections.contact.overline}</SectionOverline>
-              <SectionTitle>{sections.contact.title}</SectionTitle>
-              <SectionDescription>
-                {sections.contact.description}
-              </SectionDescription>
-            </AnimatedElement>
-          </Container>
-        </SectionStyled>
+        <ContactSection
+          overline={sections.contact.overline}
+          title={sections.contact.title}
+          paragraphs={sections.contact.paragraphs}
+          form={sections.contact.form}
+        />
       </Main>
 
+      <FloatingButtons />
       <Footer />
     </PageWrapper>
   );
