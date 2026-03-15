@@ -4,9 +4,22 @@ import { useRef, useEffect, useState } from "react";
 import styled, { keyframes, css } from "styled-components";
 import dynamic from "next/dynamic";
 import content from "@/data/content.json";
-import businessAnimation from "@/common/lottie/business.json";
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
+
+// Custom hook to fetch Lottie animation from public folder
+function useLottieAnimation(path: string) {
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch(path)
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data))
+      .catch((err) => console.error("Failed to load Lottie animation:", err));
+  }, [path]);
+
+  return animationData;
+}
 
 const fadeInUp = keyframes`
   from {
@@ -35,38 +48,6 @@ const Container = styled.div`
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 ${({ theme }) => theme.spacing.lg};
-`;
-
-const Header = styled.div<{ $isVisible: boolean }>`
-  text-align: center;
-  margin-bottom: 60px;
-  opacity: 0;
-
-  ${({ $isVisible }) =>
-    $isVisible &&
-    css`
-      animation: ${fadeInUp} 0.8s ease-out forwards;
-    `}
-
-  ${({ theme }) => theme.media.tabletUp} {
-    margin-bottom: 80px;
-  }
-`;
-
-const PageTitle = styled.h1`
-  font-family: var(--font-playfair), Georgia, serif;
-  font-size: clamp(3rem, 10vw, 6rem);
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.neutral[0]};
-  letter-spacing: -0.02em;
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
-`;
-
-const PageSubtitle = styled.p`
-  font-family: var(--font-noto-sans-kr), sans-serif;
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  color: ${({ theme }) => theme.colors.neutral[0]};
-  opacity: 0.8;
 `;
 
 const ContentLayout = styled.div<{ $isVisible: boolean }>`
@@ -113,15 +94,6 @@ const Overline = styled.span`
   text-transform: uppercase;
   margin-bottom: ${({ theme }) => theme.spacing.md};
   display: block;
-`;
-
-const Title = styled.h2`
-  font-family: var(--font-noto-sans-kr), sans-serif;
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 700;
-  color: ${({ theme }) => theme.colors.neutral[0]};
-  margin-bottom: ${({ theme }) => theme.spacing.lg};
-  line-height: 1.3;
 `;
 
 const Description = styled.p`
@@ -185,6 +157,7 @@ export function AboutUsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const { sections } = content;
+  const businessAnimation = useLottieAnimation("/lottie/business.json");
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -215,7 +188,9 @@ export function AboutUsSection() {
       <Container>
         <ContentLayout $isVisible={isVisible}>
           <LottieWrapper>
-            <Lottie animationData={businessAnimation} loop autoplay />
+            {businessAnimation && (
+              <Lottie animationData={businessAnimation} loop autoplay />
+            )}
           </LottieWrapper>
 
           <TextContent>
