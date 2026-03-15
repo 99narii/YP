@@ -14,3 +14,5 @@ export {
 } from "./Typography";
 export { AnimatedElement } from "./AnimatedElement";
 export { FloatingButtons } from "./FloatingButtons";
+export { ResultModal } from "./ResultModal";
+export { Card3D } from "./Card3D";

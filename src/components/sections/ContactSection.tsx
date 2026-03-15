@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState, useCallback } from "react";
 import styled, { keyframes, css } from "styled-components";
+import { ResultModal } from "../common";
 
 interface FormField {
   name: string;
@@ -46,6 +47,15 @@ const shimmer = keyframes`
   }
   100% {
     background-position: 200% 0;
+  }
+`;
+
+const spin = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 `;
 
@@ -358,6 +368,23 @@ const FormRow = styled.div`
   }
 `;
 
+const Spinner = styled.span`
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid ${({ theme }) => theme.colors.blue[300]};
+  border-top-color: ${({ theme }) => theme.colors.blue[500]};
+  border-radius: 50%;
+  animation: ${spin} 0.8s linear infinite;
+  margin-right: 8px;
+`;
+
+const ButtonContent = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 // Phone number formatting helper
 const formatPhoneNumber = (value: string): string => {
   const numbers = value.replace(/[^\d]/g, "");
@@ -390,6 +417,18 @@ export function ContactSection({
   const [formData, setFormData] = useState<Record<string, string>>({});
   const [errors, setErrors] = useState<ValidationErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [modalState, setModalState] = useState<{
+    isOpen: boolean;
+    type: "success" | "error";
+    title: string;
+    message: string;
+  }>({
+    isOpen: false,
+    type: "success",
+    title: "",
+    message: "",
+  });
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -478,7 +517,7 @@ export function ContactSection({
     setErrors((prev) => ({ ...prev, [name]: error }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Validate all fields
@@ -499,7 +538,59 @@ export function ContactSection({
     if (hasError || !isAgreed) return;
 
     // Handle form submission
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          company: formData.company,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setModalState({
+          isOpen: true,
+          type: "success",
+          title: "문의 완료",
+          message: "문의가 성공적으로 전송되었습니다.\n빠른 시일 내에 연락드리겠습니다.",
+        });
+        // Reset form
+        setFormData({});
+        setIsAgreed(false);
+        setTouched({});
+        setErrors({});
+      } else {
+        setModalState({
+          isOpen: true,
+          type: "error",
+          title: "전송 실패",
+          message: data.error || "전송에 실패했습니다.\n다시 시도해주세요.",
+        });
+      }
+    } catch {
+      setModalState({
+        isOpen: true,
+        type: "error",
+        title: "네트워크 오류",
+        message: "네트워크 오류가 발생했습니다.\n잠시 후 다시 시도해주세요.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const closeModal = () => {
+    setModalState((prev) => ({ ...prev, isOpen: false }));
   };
 
   const isFormValid = () => {
@@ -652,12 +743,27 @@ export function ContactSection({
               </CheckboxWrapper>
             </PrivacyWrapper>
 
-            <SubmitButton type="submit" $disabled={!isFormValid()}>
-              {form.submitButton}
+            <SubmitButton
+              type="submit"
+              $disabled={!isFormValid() || isSubmitting}
+              disabled={isSubmitting}
+            >
+              <ButtonContent>
+                {isSubmitting && <Spinner />}
+                {isSubmitting ? "전송 중..." : form.submitButton}
+              </ButtonContent>
             </SubmitButton>
           </FormWrapper>
         </ContentWrapper>
       </Container>
+
+      <ResultModal
+        isOpen={modalState.isOpen}
+        type={modalState.type}
+        title={modalState.title}
+        message={modalState.message}
+        onClose={closeModal}
+      />
     </SectionWrapper>
   );
 }

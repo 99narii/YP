@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import styled, { keyframes, css } from "styled-components";
+import { Card3D } from "../common/Card3D";
 
 interface Feature {
   number: string;
@@ -84,7 +85,7 @@ const Container = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
 `;
 
@@ -148,11 +149,12 @@ const FeaturesWrapper = styled.div`
 `;
 
 const FeaturesGrid = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: ${({ theme }) => theme.spacing.lg};
 
   ${({ theme }) => theme.media.tabletUp} {
+    grid-template-columns: repeat(3, 1fr);
     gap: ${({ theme }) => theme.spacing.xl};
   }
 `;
@@ -283,6 +285,40 @@ const BackgroundDecor = styled.div`
   }
 `;
 
+const Card3DPlaceholder = styled.div`
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+
+  ${({ theme }) => theme.media.tabletUp} {
+    height: 220px;
+  }
+`;
+
+const Use3DToggle = styled.button<{ $use3D: boolean }>`
+  font-family: var(--font-noto-sans-kr), sans-serif;
+  font-size: 12px;
+  padding: 8px 16px;
+  background: ${({ $use3D }) =>
+    $use3D ? "rgba(255, 255, 255, 0.2)" : "rgba(255, 255, 255, 0.1)"};
+  color: ${({ theme }) => theme.colors.neutral[0]};
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: ${({ theme }) => theme.spacing.lg};
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+`;
+
 export function AcademySection({
   overline,
   title,
@@ -291,6 +327,7 @@ export function AcademySection({
 }: AcademySectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [use3D, setUse3D] = useState(true);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -332,19 +369,32 @@ export function AcademySection({
           ))}
 
           <FeaturesWrapper>
+            <Use3DToggle $use3D={use3D} onClick={() => setUse3D(!use3D)}>
+              {use3D ? "3D View" : "Classic View"}
+            </Use3DToggle>
             <FeaturesGrid>
-              {features.map((feature, index) => (
-                <FeatureCard key={index} $index={index} $isVisible={isVisible}>
-                  <FeatureNumber $index={index} $isVisible={isVisible}>
-                    {feature.number}
-                  </FeatureNumber>
-                  <FeatureContent>
-                    <FeatureTitle>{feature.title}</FeatureTitle>
-                    <FeatureDescription>{feature.description}</FeatureDescription>
-                  </FeatureContent>
-                  <FeatureLine $index={index} $isVisible={isVisible} />
-                </FeatureCard>
-              ))}
+              {features.map((feature, index) =>
+                use3D ? (
+                  <Card3D
+                    key={index}
+                    number={feature.number}
+                    title={feature.title}
+                    description={feature.description}
+                    index={index}
+                  />
+                ) : (
+                  <FeatureCard key={index} $index={index} $isVisible={isVisible}>
+                    <FeatureNumber $index={index} $isVisible={isVisible}>
+                      {feature.number}
+                    </FeatureNumber>
+                    <FeatureContent>
+                      <FeatureTitle>{feature.title}</FeatureTitle>
+                      <FeatureDescription>{feature.description}</FeatureDescription>
+                    </FeatureContent>
+                    <FeatureLine $index={index} $isVisible={isVisible} />
+                  </FeatureCard>
+                )
+              )}
             </FeaturesGrid>
           </FeaturesWrapper>
         </ContentWrapper>
