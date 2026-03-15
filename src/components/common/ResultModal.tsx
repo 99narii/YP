@@ -181,7 +181,7 @@ const Title = styled.h3`
 const Message = styled.p`
   font-family: var(--font-noto-sans-kr), sans-serif;
   font-size: 1rem;
-  color: ${({ theme }) => theme.colors.neutral[600]};
+  color: ${({ theme }) => theme.colors.neutral[500]};
   line-height: 1.6;
   margin-bottom: 32px;
 `;
