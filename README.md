@@ -1,17 +1,18 @@
 # YP - 콘텐츠 비즈니스 플랫폼
 
+https://www.notion.so/321bb97da87b8057aae6dcab7a726cdd?source=copy_link
+
 콘텐츠의 영향력으로 브랜드와 시장을 연결하는 YP의 공식 웹사이트입니다.
 
 ## 기술 스택
 
 | 구분 | 기술 |
 |------|------|
-| Framework | Next.js 15 (App Router) |
-| Language | TypeScript 5.7 |
-| UI Library | React 19 |
-| Styling | styled-components 6 |
-| Animation | Lottie React |
-| SEO | JSON-LD (schema-dts) |
+|Framework|	Next.js (App Router)|
+|Language|	TypeScript|
+|Styling|	Styled Components|
+|Font|	next/font (Playfair + Noto Sans KR)|
+|Deploy |	Vercel|
 
 ## 주요 기능
 
@@ -26,7 +27,6 @@
 ### 요구 사항
 
 - Node.js 18.0.0 이상
-- npm 또는 yarn
 
 ### 설치
 
@@ -43,8 +43,6 @@ npm run build
 # 프로덕션 서버 실행
 npm start
 ```
-
-개발 서버는 [http://localhost:3000](http://localhost:3000)에서 실행됩니다.
 
 ## 프로젝트 구조
 
@@ -104,9 +102,3 @@ colors: {
 ## 배포
 
 Vercel을 통해 자동 배포됩니다.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
-
-## 라이선스
-
-MIT License
